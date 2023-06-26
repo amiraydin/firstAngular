@@ -1,0 +1,6 @@
+<p>Liste Des Utilisateurs</p>
+<div class="grid">
+    <a *ngFor="let u of users">
+        <app-user-row [user]="u"></app-user-row>
+    </a>
+</div>
