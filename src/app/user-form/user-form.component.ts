@@ -13,4 +13,7 @@ export class UserFormComponent {
     email: new FormControl(''),
     userName: new FormControl(''),
   })
+  onSubmitForm() {
+    console.log(this.profileForm.value);
+  }
 }

@@ -1,8 +1,12 @@
-<section class="results">
-    <li>{{user.id}}</li>
-    <p>{{user.firstname}}</p>
-    <p> {{user.lastname}}</p>
-    <p>{{user.username}}</p>
-    <p>{{user.email}}</p>
-    <img [src]="user.avatar+'?id='+user.id" alt="image">
-</section>
+<div class="card">
+    <img [src]="user.avatar+'?id='+user.id" class="img-fluid border rounded" alt="image">
+    <div class="card-body">
+        <div class="d-flex">
+            <p>{{user.id}} - &nbsp;</p>
+            <p>{{user.firstname}} &nbsp; </p>
+            <p> {{user.lastname}}</p>
+        </div>
+        <p class="card-text">{{user.username}}</p>
+        <p class="card-text">{{user.email}}</p>
+    </div>
+</div>
