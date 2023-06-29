@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'firstApp';
+  constructor(public httpClient: HttpClient) { }
+  tabUser = null;
+  // giveMeData() {
+  //   this.httpClient.get('https://jsonplaceholder.typicode.com/users').subscribe((resp) => {
+  //     this.tabUser = resp;
+  //   });
 }

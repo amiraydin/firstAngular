@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-form',
@@ -7,13 +7,29 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent {
+  @Output() addUser: EventEmitter<any> = new EventEmitter<any>();
+  idUser: number = 13;
   profileForm = new FormGroup({
-    name: new FormControl(''),
-    firstName: new FormControl(''),
-    email: new FormControl(''),
-    userName: new FormControl(''),
+    id: new FormControl(this.idUser),
+    lastname: new FormControl('', Validators.required),
+    firstname: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    username: new FormControl('', Validators.required),
+    avatar: new FormControl('https://i.pravatar.cc/100')
   })
+
+  remetAvatar() {
+    this.profileForm.patchValue({ avatar: "https://i.pravatar.cc/100" });
+  }
+
   onSubmitForm() {
-    console.log(this.profileForm.value);
+    if (this.profileForm.valid) {
+      const newUser = this.profileForm.value;
+      newUser.id = this.idUser++;
+      console.log(newUser);
+      this.addUser.emit(newUser);
+      this.profileForm.reset();
+      this.remetAvatar();
+    }
   }
 }

@@ -8,13 +8,13 @@
                 <div class="col">
                     <div class="">
                         <label class="form-label" for="first">First name</label>
-                        <input type="text" required id="first" class="form-control" formControlName="firstName" />
+                        <input type="text" required id="first" class="form-control" formControlName="firstname" />
                     </div>
                 </div>
                 <div class="col">
                     <div class="">
                         <label class="form-label" for="last">Last name</label>
-                        <input type="text" required id="last" class="form-control" formControlName="name" />
+                        <input type="text" required id="last" class="form-control" formControlName="lastname" />
                     </div>
                 </div>
             </div>
@@ -25,10 +25,13 @@
                 </div>
                 <div class="col">
                     <label class="form-label" for="username">User name</label>
-                    <input type="test" required id="username" class="form-control" formControlName="userName" />
+                    <input type="test" required id="username" class="form-control" formControlName="username" />
+                    <!-- <input type="test" hidden formControlName="avatar" /> -->
                 </div>
             </div>
-            <button type="submit" class="col-md-4 mt-3 btn btn-primary m-auto">Envoyer</button>
+            <div class="d-flex justify-content-around">
+                <button type="submit" class="col-md-4 mt-3 btn btn-outline-primary m-auto">Ajouter</button>
+            </div>
         </form>
     </div>
 </div>

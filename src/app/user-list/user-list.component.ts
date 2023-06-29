@@ -9,4 +9,7 @@ import { USERS } from './users.mock';
 })
 export class UserListComponent {
   users: User[] = USERS;
+  onAddUser(newUser: User) {
+    this.users.push(newUser);
+  }
 }
