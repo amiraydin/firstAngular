@@ -1,12 +1,14 @@
 <div class="card">
-    <img [src]="user.avatar+'?id='+user.id" class="img-fluid border rounded" alt="image">
+    <img [src]="!!user.avatar ? user.avatar+'?id='+user.id : 'https://i.pravatar.cc/100'"
+        class="img-fluid border rounded" alt="image">
     <div class="card-body">
-        <div class="d-flex">
+        <div class="d-flex flex-wrap">
             <p>{{user.id}} - &nbsp;</p>
             <p>{{user.firstname}} &nbsp; </p>
             <p> {{user.lastname}}</p>
         </div>
         <p class="card-text">{{user.username}}</p>
         <p class="card-text">{{user.email}}</p>
+        <button class="btn btn-outline-secondary"><i class="fas fa-user-edit"></i></button>
     </div>
 </div>

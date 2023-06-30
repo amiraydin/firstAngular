@@ -1,9 +1,13 @@
 <div class="container-fluid">
-    <h1 class="fs-4 p-4">Liste Des Utilisateurs</h1>
-    <app-user-form (addUser)="onAddUser($event)"></app-user-form>
-    <div class="d-flex flex-wrap justify-content-center align-items-center">
-        <a *ngFor="let u of users">
-            <app-user-row [user]="u"></app-user-row>
-        </a>
+    <!-- <div class="pt-3">
+        <app-user-form (addUser)="onAddUser($event)"></app-user-form>
+    </div> -->
+    <div class="border rounded">
+        <h1 class="fs-4 p-4">Liste Des Utilisateurs</h1>
+        <div class="d-flex flex-wrap justify-content-center align-items-center">
+            <a *ngFor="let u of users">
+                <app-user-row [user]="u"></app-user-row>
+            </a>
+        </div>
     </div>
 </div>
