@@ -10,9 +10,5 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'firstApp';
   constructor(public httpClient: HttpClient) { }
-  tabUser = null;
-  // giveMeData() {
-  //   this.httpClient.get('https://jsonplaceholder.typicode.com/users').subscribe((resp) => {
-  //     this.tabUser = resp;
-  //   });
+
 }

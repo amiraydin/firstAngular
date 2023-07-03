@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card text-center position-relative">
     <img [src]="!!user.avatar ? user.avatar+'?id='+user.id : 'https://i.pravatar.cc/100'"
         class="img-fluid border rounded" alt="image">
     <div class="card-body">
@@ -7,8 +7,63 @@
             <p>{{user.firstname}} &nbsp; </p>
             <p> {{user.lastname}}</p>
         </div>
-        <p class="card-text">{{user.username}}</p>
-        <p class="card-text">{{user.email}}</p>
-        <button class="btn btn-outline-secondary"><i class="fas fa-user-edit"></i></button>
+        <div class="">
+            <p class="card-text">{{user.username}}</p>
+            <p class="card-text">{{user.email}}</p>
+        </div>
+        <div class="d-flex flex-wrap justify-content-around card-footer position-absolute"
+            style="top: 87%; left: 0; width: -webkit-fill-available;">
+            <button class="btn btn-outline-secondary" (click)="getUserInfo(user)" data-mdb-toggle="modal"
+                data-mdb-target="#usermodal"><i class="fas fa-user-edit"></i></button>
+            <button class="btn btn-outline-danger" (click)="deleteThisUser(user.id)"><i
+                    class="fas fa-trash-alt"></i></button>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="usermodal" tabindex="-1" aria-labelledby="testUserModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h5 class="modal-title" id="testUserModal">{{userData.id}}</h5> -->
+                <!-- <h5 class="modal-title" id="testUserModal">{{userData.firstname}}</h5> -->
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="userData">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <div class="">
+                                <label class="form-label" for="first">First name</label>
+                                <input type="text" required id="first" class="form-control"
+                                    formControlName="firstname" />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="">
+                                <label class="form-label" for="last">Last name</label>
+                                <input type="text" required id="last" class="form-control" formControlName="lastname" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row md-3">
+                        <div class="col">
+                            <label class="form-label" for="emailo">Email address</label>
+                            <input type="email" required id="emailo" class="form-control" formControlName="email" />
+                        </div>
+                        <div class="col">
+                            <label class="form-label" for="username">User name</label>
+                            <input type="test" required id="username" class="form-control" formControlName="username" />
+                        </div>
+                    </div>
+                    <div class=" modal-footer">
+                        <button type="submit" [disabled]="!userData.valid"
+                            class="col-md-4 mt-3 btn btn-outline-primary m-auto"
+                            (click)="modifyUser(user.id)">Souvgarder</button>
+                        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>

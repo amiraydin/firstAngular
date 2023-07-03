@@ -33,6 +33,10 @@ export class UserApiService {
     return this.http.put<User>(this.apiURL + '/userss' + id, JSON.stringify(user), this.httpOption).pipe(retry(1), catchError(this.handleError));
   }
 
+  deleteUser(id: any) {
+    return this.http.delete<User>(this.apiURL + '/userss/' + id, this.httpOption).pipe(retry(1), catchError(this.handleError));
+  }
+
   handleError(error: any) {
     let errMsg = '';
     if (error.error instanceof ErrorEvent) errMsg = error.error.message;
